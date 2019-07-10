@@ -1,6 +1,6 @@
-var add = function(x,y)
+var add = function(a,y)
 {
-    var z= x +y;
+    var z= a +y;
     return z;
 };
 var sum = add(5,6)
