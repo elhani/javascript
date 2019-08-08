@@ -1,10 +1,5 @@
 var M = 8;
 
-
-
- 
-
-
 var echec =[] ;
 for(var i=0 ; i<M; i++) {
     echec[i] =[];
@@ -24,8 +19,8 @@ for(var i=0 ; i<M; i++) {
 };
 
 console.log(echec);
-
-
+var pointA;
+var distance;
 var cheval;
 
 var cheval = Object.create(echec);
@@ -36,14 +31,14 @@ var cheval = Object.create(echec);
                          cheval.cellY ;
 
                          chevalMoves = [
-                            {xcordinate:2, ycordinate:-1},
-                            {xcordinate:2, ycordinate:1},
-                            {xcordinate:1, ycordinate:-2},
-                            {xcordinate:1, ycordinate:2},
-                            {xcordinate:-2, ycordinate:-1},
-                            {xcordinate:-2, ycordinate:1},
-                            {xcordinate:-1, ycordinate:-2},
-                            {xcordinate:-1, ycordinate:2}
+                            {cellX:2, cellY:-1},
+                            {cellX:2, cellY:1},
+                            {cellX:1, cellY:-2},
+                            {cellX:1, cellY:2},
+                            {cellX:-2, cellY:-1},
+                            {cellX:-2, cellY:1},
+                            {cellX:-1, cellY:-2},
+                            {cellX:-1, cellY:2}
                           ]
                          
                         console.log(chevalMoves);
@@ -61,16 +56,17 @@ var pointA = Object.create(echec)  ;
                           pointA.ycordinatpointA=1;
 
                           console.log(pointA);
+                                                
 
-console.log(Movecheval(echec));
+console.log(Movecheval());
+console.log(getsteps());
                           
-function Movecheval(cellX){
+function Movecheval(cellX,cellY){
 
     
     var xcordinatcheval = [ '0', '1', '2', '3', '4', '5', '6', '7'  ];
     
     
-   
     console.log(xcordinatcheval);
     
     
@@ -95,8 +91,8 @@ function Movecheval(cellX){
 
        
      
-       var cellX = 4;
-       var cellY =3 ;
+       var cellX = 0;
+       var cellY =0 ;
 
       var cellXpositions = [cellX + 2, cellX - 2, cellX + 1, cellX - 1].filter(function(cellPosition) {
                        
@@ -120,18 +116,15 @@ function Movecheval(cellX){
 
             for (var i = 0; i < cellXpositions.length; i++) {
             for (var j = 0; j < cellYpositions.length; j++) {
-                  
-                 if (Math.abs(cellX - cellXpositions[i]) + Math.abs(cellY - cellYpositions[j])===3 ) {
+              if (Math.abs(cellX - cellXpositions[i]) + Math.abs(cellY - cellYpositions[j])===3 )
+                {
                       console.log('This is a valid coordinate: ', [cellXpositions[i], cellYpositions[j]]);
                          if (!possiblemove.includes([cellXpositions[i], cellYpositions[j]])) {
                           possiblemove.push([cellXpositions[i], cellYpositions[j]]);
-
-                          
+                         
                                 } 
                                 }
                                     }
-    
-    
                                 }
     
                  console.log('Possible Coordinates:', possiblemove);
@@ -139,12 +132,63 @@ function Movecheval(cellX){
                   console.log(cellX);
                   console.log(cellY);
                   return possiblemove.length;
-                            }
-                            
-                            
-               
+                              }
+                                              
+                              
+  function getsteps(cellX, cellY, xcordinatpointA, ycordinatpointA){
 
-
-
-
+                    
+                       
+    
+  
+    var dp=[];
+      var xcordinatpointA =3;
+      var ycordinatpointA=1;
+ var cellY=0;
+ var cellX=0;
  
+
+var cellX1 ;
+var cellY1 ;
+var cellX2 ;
+var cellY2 ; 
+  
+    
+var dp = Object.create(echec)  ; 
+  
+
+{ 
+     
+    if (cellX == xcordinatpointA && cellY == ycordinatpointA) 
+        return console.log('pointA de méme cordinate avec le cheval' + dep[0]) ;
+    else { 
+          
+        
+        if (dp[Math.abs(cellX - xcordinatpointA)] != 0  &&dp[Math.abs(cellY - ycordinatpointA)]!= 0) 
+            return (dp[Math.abs(cellX - xcordinatpointA)], dp[Math.abs(cellX - xcordinatpointA)]);
+              
+
+                                       
+else { 
+                              
+                                         
+    cellX1 , cellY1, cellX2, cellY2;  
+                                  
+  do
+     
+    
+        ((  cellX1==cellX + 1) &&   ( cellY1==cellY   + 2)) ||
+        ((  cellX1==cellX - 1) &&   (cellY1==cellY    + 2)) ||
+        ((  cellX1==cellX + 1) &&   (cellY1==cellY    - 2)) ||
+        ((  cellX1==cellX - 1) &&   ( cellY1==cellY   - 2)) ||
+             console.log(dep[Math.abs(cellX1-xcordinatpointA)][Math.abs(cellY1-ycordinatpointA)]),
+
+        ((cellX2==cellX  + 2) &&   (cellY2==cellY    - 1)) ||
+        ((cellX2==cellX  + 2) &&   (cellY2==cellY    + 1)) ||
+        ((cellX2==cellX  - 2) &&   (cellY2==cellY    - 1)) ||
+        ((cellX2==cellX  - 2) &&   (cellY2==cellY    + 1))
+        
+     while ( (cellX != xcordinatpointA)||  (cellY != ycordinatpointA))    
+           
+ 
+       }}}}   
